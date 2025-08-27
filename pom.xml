@@ -12,11 +12,11 @@
     <name>Spring Boot Starter Request Control</name>
     <description>A Spring Boot starter for dynamic request control with API endpoints</description>
     <url>https://github.com/805131398/spring-boot-starter-request-control</url>
-    
+
     <licenses>
         <license>
-            <name>MIT License</name>
-            <url>https://opensource.org/licenses/MIT</url>
+            <name>The Apache License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
         </license>
     </licenses>
     
@@ -25,6 +25,7 @@
             <name>hao zhang</name>
             <email>p15589940489@gmail.com</email>
             <organization>luckcoder</organization>
+            <organizationUrl>https://www.luckcoder.com</organizationUrl>
         </developer>
     </developers>
     

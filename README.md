@@ -66,7 +66,7 @@ request:
   control:
     enabled: true                    # 是否启用请求控制功能
     default-enabled: true            # 系统启动时默认状态
-    secret-key: "your-secret-key"    # 安全密钥（建议修改）
+    secret-key: "dynamic"            # 动态时间密钥或自定义密钥
     control-path: "/set-request"     # 控制接口路径
     log-enabled: true                # 是否记录日志
     reject-message: "系统维护中，请稍后再试"  # 拒绝请求消息
@@ -83,14 +83,18 @@ request:
 **启动应用后，可以使用以下接口控制请求：**
 
 ```bash
+# 动态时间密钥说明：
+# 格式为 MMHHDD（分钟小时日）
+# 例如：2025-08-27 10:43:30 → 密钥为 431027
+
 # 禁用系统请求（除白名单路径外的所有请求将返回503）
-curl http://localhost:8080/set-request/false/your-secret-key
+curl http://localhost:8080/set-request/false/431027
 
 # 启用系统请求
-curl http://localhost:8080/set-request/true/your-secret-key
+curl http://localhost:8080/set-request/true/431027
 
 # 查询当前状态
-curl http://localhost:8080/set-request/status/your-secret-key
+curl http://localhost:8080/set-request/status/431027
 
 # 查询基本信息（无需密钥）
 curl http://localhost:8080/set-request/info
@@ -109,7 +113,7 @@ curl http://localhost:8080/set-request/info
 |-----|------|-------|------|
 | `request.control.enabled` | boolean | true | 是否启用请求控制功能 |
 | `request.control.default-enabled` | boolean | true | 系统启动时的默认状态 |
-| `request.control.secret-key` | String | "470727" | 安全密钥（生产环境请修改） |
+| `request.control.secret-key` | String | "dynamic" | 密钥类型：'dynamic'为动态时间密钥，其他值为静态密钥 |
 | `request.control.control-path` | String | "/set-request" | 控制接口路径前缀 |
 | `request.control.log-enabled` | boolean | false | 是否记录拦截日志 |
 | `request.control.reject-message` | String | "System is temporarily unavailable" | 拒绝请求时的响应消息 |
@@ -140,9 +144,22 @@ spring-boot-starter-request-control/
 
 | 接口 | 方法 | 说明 | 参数 |
 |-----|------|------|------|
-| `/set-request/{enabled}/{secretKey}` | GET | 设置请求状态 | enabled: true/false, secretKey: 密钥 |
-| `/set-request/status/{secretKey}` | GET | 查询状态 | secretKey: 密钥 |
+| `/set-request/{enabled}/{secretKey}` | GET | 设置请求状态 | enabled: true/false, secretKey: 动态时间密钥或静态密钥 |
+| `/set-request/status/{secretKey}` | GET | 查询状态 | secretKey: 动态时间密钥或静态密钥 |
 | `/set-request/info` | GET | 基本信息 | 无需密钥 |
+
+### 动态时间密钥规则
+
+当配置 `secret-key: "dynamic"` 时，系统将使用动态时间密钥验证：
+
+- **密钥格式**: MMHHDD（分钟+小时+日）
+- **示例**: 2025-08-27 10:43:30 → 密钥为 `431027`
+- **计算规则**: 
+  - MM: 当前分钟数（00-59）
+  - HH: 当前小时数（00-23）  
+  - DD: 当前日期（01-31）
+- **有效期**: 密钥在当前分钟内有效
+- **向后兼容**: 可配置静态密钥替代动态验证
 
 ### 响应格式
 

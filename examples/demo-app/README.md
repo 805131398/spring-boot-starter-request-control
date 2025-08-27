@@ -40,14 +40,19 @@ curl http://localhost:8080/actuator/health
 ### 3. 请求控制接口
 
 ```bash
+# 动态时间密钥说明：格式为 MMHHDD（分钟小时日）
+# 例如：2025-08-27 10:43:30 → 密钥为 431027
+# 请根据当前时间生成密钥，格式：分钟(2位) + 小时(2位) + 日(2位)
+
 # 禁用请求（业务接口将返回503）
-curl http://localhost:8080/set-request/false/demo-secret-key-123
+# 假设当前时间是 10:43 27日，密钥就是 431027
+curl http://localhost:8080/set-request/false/431027
 
 # 启用请求
-curl http://localhost:8080/set-request/true/demo-secret-key-123
+curl http://localhost:8080/set-request/true/431027
 
 # 查询当前状态
-curl http://localhost:8080/set-request/status/demo-secret-key-123
+curl http://localhost:8080/set-request/status/431027
 
 # 获取基本信息（无需密钥）
 curl http://localhost:8080/set-request/info
@@ -63,8 +68,11 @@ curl http://localhost:8080/set-request/info
 
 2. **禁用请求测试**
    ```bash
+   # 根据当前时间生成密钥，例如当前时间是 10:43 27日
+   # 密钥格式：分钟(43) + 小时(10) + 日(27) = 431027
+   
    # 禁用请求
-   curl http://localhost:8080/set-request/false/demo-secret-key-123
+   curl http://localhost:8080/set-request/false/431027
    
    # 测试业务接口（应该返回503）
    curl http://localhost:8080/api/hello
@@ -77,8 +85,8 @@ curl http://localhost:8080/set-request/info
 
 3. **重新启用请求测试**
    ```bash
-   # 启用请求
-   curl http://localhost:8080/set-request/true/demo-secret-key-123
+   # 启用请求（密钥需要与当前时间匹配）
+   curl http://localhost:8080/set-request/true/431027
    
    # 测试业务接口（恢复正常）
    curl http://localhost:8080/api/hello
@@ -89,7 +97,7 @@ curl http://localhost:8080/set-request/info
 
 查看 `src/main/resources/application.yml` 中的配置：
 
-- 使用自定义密钥: `demo-secret-key-123`
+- 使用动态时间密钥: `dynamic`（基于当前时间的MMHHDD格式）
 - 启用详细日志记录
 - 添加 `/health` 到白名单
 - 自定义拒绝消息

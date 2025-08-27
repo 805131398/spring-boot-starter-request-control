@@ -12,7 +12,7 @@ public class RequestControlProperties {
     
     private boolean defaultEnabled = true;
     
-    private String secretKey = "470727";
+    private String secretKey = "dynamic";
     
     private String controlPath = "/set-request";
     

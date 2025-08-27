@@ -9,7 +9,7 @@ request:
   control:
     enabled: true
     default-enabled: true
-    secret-key: "demo-secret-key-123"
+    secret-key: "dynamic"
     control-path: "/set-request"
     log-enabled: true
     reject-message: "Demo service is temporarily unavailable for maintenance"

@@ -74,4 +74,4 @@ java -jar target/spring-request-controller-1.0.0.jar
 - GroupId: com.luckcoder
 - ArtifactId: spring-boot-starter-request-control
 - 包名: com.luckcoder.request.control
-- 默认密钥: 470727
+- 密钥类型: 动态时间密钥（MMHHDD格式）或静态密钥
