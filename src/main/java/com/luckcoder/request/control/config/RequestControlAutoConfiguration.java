@@ -19,9 +19,12 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 public class RequestControlAutoConfiguration implements WebMvcConfigurer {
     
     private final RequestControlProperties properties;
+    private final RequestControlInterceptor interceptor;
     
-    public RequestControlAutoConfiguration(RequestControlProperties properties) {
+    public RequestControlAutoConfiguration(RequestControlProperties properties,
+                                         RequestControlInterceptor interceptor) {
         this.properties = properties;
+        this.interceptor = interceptor;
     }
     
     @Bean
@@ -52,7 +55,7 @@ public class RequestControlAutoConfiguration implements WebMvcConfigurer {
     
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
-        registry.addInterceptor(requestControlInterceptor(requestControlService(), objectMapper()))
+        registry.addInterceptor(interceptor)
                 .addPathPatterns("/**")
                 .order(Ordered.HIGHEST_PRECEDENCE);
     }

@@ -1,0 +1,36 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: request-control-demo
+
+request:
+  control:
+    enabled: true
+    default-enabled: true
+    secret-key: "demo-secret-key-123"
+    control-path: "/set-request"
+    log-enabled: true
+    reject-message: "Demo service is temporarily unavailable for maintenance"
+    whitelist-paths:
+      - "/set-request/**"
+      - "/actuator/**"
+      - "/error"
+      - "/favicon.ico"
+      - "/health"        # 健康检查接口不受控制影响
+
+logging:
+  level:
+    com.luckcoder.request.control: DEBUG
+    com.example.demo: INFO
+    root: INFO
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+  endpoint:
+    health:
+      show-details: always
