@@ -4,7 +4,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>io.github.luckcoder</groupId>
+    <groupId>com.luckcoder</groupId>
     <artifactId>spring-boot-starter-request-control</artifactId>
     <version>1.0.0</version>
     <packaging>jar</packaging>
@@ -22,8 +22,8 @@
     
     <developers>
         <developer>
-            <name>zhanghao</name>
-            <email>your-email@example.com</email>
+            <name>hao zhang</name>
+            <email>p15589940489@gmail.com</email>
             <organization>luckcoder</organization>
         </developer>
     </developers>

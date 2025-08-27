@@ -46,7 +46,7 @@
 
         <!-- Our Request Control Starter -->
         <dependency>
-            <groupId>io.github.luckcoder</groupId>
+            <groupId>com.luckcoder</groupId>
             <artifactId>spring-boot-starter-request-control</artifactId>
             <version>1.0.0</version>
         </dependency>

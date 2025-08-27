@@ -71,5 +71,7 @@ java -jar target/spring-request-controller-1.0.0.jar
 - 框架: Spring Boot 3.1.5
 - 构建工具: Maven 
 - 项目编码: UTF-8
-- 默认端口: 8080
+- GroupId: com.luckcoder
+- ArtifactId: spring-boot-starter-request-control
+- 包名: com.luckcoder.request.control
 - 默认密钥: 470727

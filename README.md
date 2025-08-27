@@ -1,6 +1,6 @@
 # Spring Boot Starter Request Control
 
-[![Maven Central](https://img.shields.io/maven-central/v/io.github.luckcoder/spring-boot-starter-request-control.svg?label=Maven%20Central)](https://search.maven.org/search?q=g:%22io.github.luckcoder%22%20AND%20a:%22spring-boot-starter-request-control%22)
+[![Maven Central](https://img.shields.io/maven-central/v/com.luckcoder/spring-boot-starter-request-control.svg?label=Maven%20Central)](https://search.maven.org/search?q=g:%22com.luckcoder%22%20AND%20a:%22spring-boot-starter-request-control%22)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 一个轻量级的Spring Boot Starter，允许通过特定API动态控制系统是否接受外部请求。
@@ -23,7 +23,7 @@
 **Maven:**
 ```xml
 <dependency>
-    <groupId>io.github.luckcoder</groupId>
+    <groupId>com.luckcoder</groupId>
     <artifactId>spring-boot-starter-request-control</artifactId>
     <version>1.0.0</version>
 </dependency>
@@ -31,7 +31,7 @@
 
 **Gradle:**
 ```gradle
-implementation 'io.github.luckcoder:spring-boot-starter-request-control:1.0.0'
+implementation 'com.luckcoder:spring-boot-starter-request-control:1.0.0'
 ```
 
 ### 2. 创建Spring Boot应用
