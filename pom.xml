@@ -11,7 +11,7 @@
     
     <name>Spring Boot Starter Request Control</name>
     <description>A Spring Boot starter for dynamic request control with API endpoints</description>
-    <url>https://github.com/luckcoder/spring-boot-starter-request-control</url>
+    <url>https://github.com/805131398/spring-boot-starter-request-control</url>
     
     <licenses>
         <license>
@@ -29,9 +29,9 @@
     </developers>
     
     <scm>
-        <connection>scm:git:git://github.com/luckcoder/spring-boot-starter-request-control.git</connection>
-        <developerConnection>scm:git:ssh://github.com:luckcoder/spring-boot-starter-request-control.git</developerConnection>
-        <url>https://github.com/luckcoder/spring-boot-starter-request-control/tree/main</url>
+        <connection>scm:git:git://github.com/805131398/spring-boot-starter-request-control.git</connection>
+        <developerConnection>scm:git:ssh://github.com:805131398/spring-boot-starter-request-control.git</developerConnection>
+        <url>https://github.com/805131398/spring-boot-starter-request-control/tree/main</url>
     </scm>
 
     <properties>

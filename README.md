@@ -213,7 +213,7 @@ mvn source:jar javadoc:jar
 
 ```bash
 # 克隆项目
-git clone https://github.com/luckcoder/spring-boot-starter-request-control.git
+git clone https://github.com/805131398/spring-boot-starter-request-control.git
 
 # 编译项目
 mvn clean compile
@@ -248,11 +248,11 @@ MIT License - 详见 [LICENSE](LICENSE) 文件
 ## 作者
 
 **zhanghao**
-- GitHub: [@luckcoder](https://github.com/luckcoder)
-- Email: your-email@example.com
+- GitHub: [@805131398](https://github.com/805131398)
+- Email: p15589940489@gmail.com
 
 ## 支持
 
 如果您觉得这个项目对您有帮助，请给个⭐️！
 
-如果您遇到问题或有功能建议，请在 [GitHub Issues](https://github.com/luckcoder/spring-boot-starter-request-control/issues) 中反馈。
+如果您遇到问题或有功能建议，请在 [GitHub Issues](https://github.com/805131398/spring-boot-starter-request-control/issues) 中反馈。
